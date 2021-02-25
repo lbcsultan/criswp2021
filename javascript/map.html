@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+<body>
+<h2>구글 지도 테스트 </h2>
+
+<p>
+  서버에 설치하여 사용하려면 구글에 등록하고 API 키를 얻어야 함 <br>
+  <a href="https://developers.google.com/maps/?hl=ko">Google Maps API 키 얻기</a> <br>
+</p>
+<div id="map" style="width:700px;height:500px"></div>
+
+<script>
+function myMap() {
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {
+    center: new google.maps.LatLng(37.713321, 126.889800),
+    zoom: 12,
+    //mapTypeId: google.maps.MapTypeId.HYBRID,
+    panControl: true,
+    zoomControl: true,
+    mapTypeControl: true,
+    scaleControl: true,
+    streetViewControl: true,
+    overviewMapControl: true,
+    rotateControl: true,
+    zoomControlOptions: {
+        style: google.maps.ZoomControlStyle.DEFAULT
+    },
+    mapTypeControlOptions: {
+      //style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+      style: google.maps.MapTypeControlStyle.DEFAULT,
+      //position: google.maps.ControlPosition.TOP_CENTER
+      position: google.maps.ControlPosition.DEFAULT
+    }  
+  };
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+
+  var joongbu = {lat: 37.713321, lng: 126.889800};
+  var marker = new google.maps.Marker({
+          position: joongbu,
+          animation:google.maps.Animation.BOUNCE,
+          map: map
+      });
+  var goyangdong = {lat: 37.703326, lng: 126.902021};
+  var marker1 = new google.maps.Marker({
+          position: goyangdong,
+          map: map
+      });
+  var gwansandong = {lat: 37.687441, lng: 126.866200};
+  var marker2 = new google.maps.Marker({
+          position: gwansandong,
+          map: map
+      });
+  var samsong = {lat: 37.653410, lng: 126.895049};
+  var marker3 = new google.maps.Marker({
+          position: samsong,
+          map: map
+      });      
+
+
+  var infowindow = new google.maps.InfoWindow({
+          content: "중부대학교"
+      });
+  var infowindow1 = new google.maps.InfoWindow({
+          content: "고양동"
+      });
+  var infowindow2 = new google.maps.InfoWindow({
+          content: "관산동"
+      });
+  var infowindow3 = new google.maps.InfoWindow({
+          content: "삼송역"
+      });
+
+  // Zoom when clicking on marker
+  google.maps.event.addListener(marker,'click',function() {
+      infowindow.open(map,marker);
+      var pos = map.getZoom();
+      map.setZoom(17);
+      map.setCenter(marker.getPosition());
+      window.setTimeout(function() {map.setZoom(pos);},3000);
+  });     
+  google.maps.event.addListener(marker1,'click',function() {
+      infowindow1.open(map,marker1);
+      var pos = map.getZoom();
+      map.setZoom(17);
+      map.setCenter(marker1.getPosition());
+      window.setTimeout(function() {map.setZoom(pos);},3000);
+  });     
+  google.maps.event.addListener(marker2,'click',function() {
+      infowindow2.open(map,marker2);
+      var pos = map.getZoom();
+      map.setZoom(17);
+      map.setCenter(marker2.getPosition());
+      window.setTimeout(function() {map.setZoom(pos);},3000);
+  });       
+  google.maps.event.addListener(marker3,'click',function() {
+      infowindow3.open(map,marker3);  
+      var pos = map.getZoom();
+      map.setZoom(18);
+      map.setCenter(marker3.getPosition());
+      window.setTimeout(function() {map.setZoom(pos);},3000);
+  });      
+
+  google.maps.event.addListener(map, 'click', function(event) {
+  placeMarker(map, event.latLng);
+  });
+
+  function placeMarker(map, location) {
+    var marker = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Latitude: ' + location.lat() +
+      '<br>Longitude: ' + location.lng()
+    });
+    infowindow.open(map,marker);
+  }
+
+}
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTTDhSRhbp50N3kLeGEdHVBNiKYuUzS8s&callback=myMap" async defer></script>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+  <TITLE> 진수변환 </TITLE>
+  <meta charset="UTF-8">
+</HEAD>
+<body>
+  <h1>자바스크립트 진수변환</h1>
+  <div>
+    <P>자바스크립트의 내장함수들을 이용하면 진수변환을 쉽게 할 수 있다.</P>
+    <P>
+      10진수를 2진수로 변환: toString(2) <br>
+      10진수를 8진수로 변환: toString(8) <br>
+      10진수를 16진수로 변환: toString(16)
+    </P>
+    <P>
+      2진수를 10진수로 변환: parseInt(this.value,2) <br>
+      8진수를 10진수로 변환: parseInt(this.value,8) <br>
+      16진수를 10진수로 변환: parseInt(this.value,16)
+    </P>
+
+    <hr>
+
+    <P style="height: 30px">
+      <LABEL>10진수</LABEL>
+      <INPUT onkeyup="hex.value=parseInt(this.value).toString(16); bin.value=parseInt(this.value).toString(2); oct.value=parseInt(this.value).toString(8);" id=dec>
+    </P>
+    <P style="height: 30px">
+      <LABEL>16진수</LABEL>
+      <INPUT onkeyup="dec.value=parseInt(this.value,16); bin.value=parseInt(this.value,16).toString(2); oct.value=parseInt(this.value,16).toString(8);" id=hex>
+    </P>
+    <P style="height: 30px">
+      <LABEL>&nbsp;2진수</LABEL>
+      <INPUT onkeyup="dec.value=parseInt(this.value,2); hex.value=parseInt(this.value,2).toString(16); oct.value=parseInt(this.value,2).toString(8);" id=bin>
+    </P>
+    <P style="height: 30px">
+      <LABEL>&nbsp;8진수</LABEL>
+      <INPUT onkeyup="dec.value=parseInt(this.value,8); hex.value=parseInt(this.value,8).toString(16); bin.value=parseInt(this.value,8).toString(2);" id=oct>
+    </P>
+  </div>
+</HTML>

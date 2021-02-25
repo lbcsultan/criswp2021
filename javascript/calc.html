@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <TITLE>계산기</TITLE>
+  <meta charset="UTF-8">
+  <style>
+    tr, td {
+      align-items: center;
+    }
+    input {
+      width: 3em;
+    }
+    #result, #input {
+      width: 10em;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>간단한 계산기 </h1>
+
+  <table bgColor=gold>
+    <form name=calc>
+      <tr align=center>
+        <td align=center>
+          수식: <input size=20 id=input>
+        </td>
+      </tr>
+      <tr align=center>
+        <td align=center>
+          결과: <input size=20 id=result>
+        </td>
+      </tr>
+      <tr align=center>
+        <td>
+          <input onclick="calc.input.value += '1'" type=button value="1" name=one>
+          <input onclick="calc.input.value += '2'" type=button value="2" name=two>
+          <input onclick="calc.input.value += '3'" type=button value="3" name=three>
+          <input onclick="calc.input.value += ' + '" type=button value="+" name=plus>
+        </td>
+      </tr>
+      <tr align=center>
+        <td>
+          <input onclick="calc.input.value += '4'" type=button value="4" name=four>
+          <input onclick="calc.input.value += '5'" type=button value="5" name=five>
+          <input onclick="calc.input.value += '6'" type=button value="6" name=six>
+          <input onclick="calc.input.value += ' - '" type=button value="-" name=minus>
+        </td>
+      </tr>
+      <tr align=center>
+        <td>
+          <input onclick="calc.input.value += '7'" type=button value="7" name=seven>
+          <input onclick="calc.input.value += '8'" type=button value="8" name=eight>
+          <input onclick="calc.input.value += '9'" type=button value="9" name=nine>
+          <input onclick="calc.input.value += ' * '" type=button value="x" name=times>
+        </td>
+      </tr>
+      <tr align=center>
+        <td>
+          <input onclick="calc.input.value = ''; calc.result.value=''" type=button value="C" name=clear>
+          <input onclick="calc.input.value += '0'" type=button value="0" name=zero>
+          <input onclick="calc.result.value = eval(calc.input.value)" type=button value="=" name=DoIt>
+          <input onclick="calc.input.value += '/'" type=button value="/" name=div>
+        </td>
+      </tr>
+
+    </form>
+  </table>
+</body>
+</html>

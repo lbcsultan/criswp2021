@@ -1,0 +1,91 @@
+
+<HTML>
+<HEAD>
+  <TITLE>가위 바위 보 게임 </TITLE>
+  <meta charset="UTF-8">
+  <SCRIPT>
+    function playGame(choice) {
+      with (document.game) {
+        comp = Math.round((Math.random() * 2) + 1);  // 컴퓨터의 선택 1,2,3
+        var choicename;
+        if (comp == 1) choicename = "바위";
+        if (comp == 2) choicename = "보";
+        if (comp == 3) choicename = "가위";
+        msg.value = '컴퓨터는 ' + choicename + ' --> ';
+        switch(choice) { // calculates score
+          case 1 : // rock
+            if (comp == 1) {  draw.value++; msg.value += '이번엔 무승부.'; break; }
+            if (comp == 2) {  loss.value++;  msg.value += '이런,당신이 졌어요.';     break; }
+            if (comp == 3) {  win.value++; msg.value += '축하해요. 당신이 이겼어요!';      break; }
+          case 2 : // paper
+            if (comp == 1) {  win.value++;  msg.value += '당신이 이겼어요!';      break; }
+            if (comp == 2) {  draw.value++; msg.value += '무승부죠?'; break; }
+            if (comp == 3) {  loss.value++; msg.value += '하하! 당신이 졌죠?';     break; }
+          case 3 : // scissors
+            if (comp == 1) {  loss.value++;  msg.value += '흠. 당신이 졌어요.';     break; }
+            if (comp == 2) {  win.value++; msg.value += '대단해요. 당신이 이겼어요.';      break; }
+            if (comp == 3) {  draw.value++; msg.value += '이런 무승부군요.'; break; }
+        }
+        msg.value += '   ^_^';
+      }
+    }
+  </SCRIPT>
+</HEAD>
+
+<BODY >
+  <center>
+    <h1>가위 바위 보 게임</h1>
+    <form name=game>
+      <table border=3 cellpadding=5 >
+        <tr>
+          <td align=center><b>선택하세요 <br> Choose one </b></td>
+          <td align=center>
+            <a href="javascript:void(0);" onClick="playGame(1);">
+            <img src="바위.jpg" border="0"></a>
+          </td>
+          <td align=center>
+            <a href="javascript:void(0);" onClick="playGame(2);">
+            <img src="보.jpg" border="0"></a>
+          </td>
+          <td align=center>
+            <a href="javascript:void(0);" onClick="playGame(3);">
+            <img src="가위.jpg" border="0"></a>
+          </td>
+        </tr>
+        <tr>
+          <td colspan=4 align=center>
+            <input type=text name=msg size="60">
+          </td>
+        </tr>
+        <tr>
+          <td colspan=4 align=center> <b>
+            <input type=text name=win readonly value="0" size="2">번 이김. &nbsp;
+            <input type=text name=loss readonly value="0" size="2">번 짐. &nbsp;
+            <input type=text name=draw readonly value="0" size="2">번 무승부. </b>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </center>
+
+  <CENTER>
+    <TABLE width="640" border="0" cellspacing="2" cellpadding="2">
+      <TR>
+        <TD align="center" valign="middle" height="24" bgcolor="orange">
+          <FONT size="4" color="white">
+          ** 게임 설명 **
+          </FONT>
+        </TD>
+      </TR>
+      <TR>
+        <TD bgcolor="cornsilk">
+          1. 가위 바위 보 게임입니다. <BR>
+          2. 그림을 선택하면 게임이 진행되고 결과가 나옵니다.  <BR>
+          3. 계속 그림을 선택하면 게임이 계속 됩니다.
+        </TD>
+      </TR>
+    </TABLE>
+  </CENTER>
+
+</BODY>
+</HTML>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+  <meta charset="UTF-8">
+  <title>섭씨-화씨 온도변환</title>
+  <script>
+    // 섭씨->화씨
+    function C2F() {
+        var cel = document.c2f.cel1.value;
+        var far = (cel * 9/5)+32;
+        document.c2f.far1.value = far;
+    }
+    function F2C() {
+        var far = document.f2c.far2.value;
+        var cel = (far - 32) * 5/9;
+        document.f2c.cel2.value = cel;
+    }
+  </script>
+</HEAD>
+<body>
+
+  <h1> 섭씨-화씨 온도 변환기 </h1>
+  <p>
+    화씨온도 = 섭씨온도*1.8+32 <br>
+    섭씨온도 = (화씨온도-32)*5/9 <br>
+  </p>
+  <hr>
+  <br>
+  <form name="c2f">
+    섭씨(Celsius) <input type="text" name="cel1" size="5">
+    <input type="button" value="섭씨 --> 화씨" onClick="C2F()">
+    <input type="text" name="far1" size="15"> 화씨(Fahrenheit)
+  </form>
+  <br>
+  <form name="f2c">
+    화씨(Fahrenheit) <input type="text" name="far2" size="5">
+    <input type="button" value="화씨 --> 섭씨" onClick="F2C()">
+    <input type="text" name="cel2" size="15"> 섭씨(Celsius)
+  </form>
+
+</body>
+</html>
